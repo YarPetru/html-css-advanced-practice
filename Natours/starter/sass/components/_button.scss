@@ -54,6 +54,15 @@
       background-color: $color-white;
     }
   }
+
+  &--green {
+    background-color: $color-green-medium;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-green-medium;
+    }
+  }
 }
 
 .btn-text {
@@ -63,13 +72,13 @@
     text-decoration: none;
     font-size: $font-size-default;
     color: $color-green-dark;
-    border-bottom: 1px solid $color-green-dark;
+    border-bottom: 1px solid $color-green-medium;
     padding: 3px;
     transition: all 300ms ease;
   }
 
   &:hover {
-    background-color: $color-green-dark;
+    background-color: $color-green-medium;
     color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
     transform: translateY(-2px);

@@ -18,9 +18,26 @@
   // background-position: center;
 
   // clip-path: polygon(0 25vh, 100% 0, 100% 75vh, 0 100%);
-  transform: skewY(-7deg);
+  transform: skewY(-3deg);
 
   & > * {
-    transform: skewY(7deg);
+    transform: skewY(3deg);
   }
+}
+
+.section-tours {
+  margin-top: -8rem;
+  background-color: $color-grey-light-1;
+  padding: 35rem 0 20rem 0;
+}
+
+.section-stories {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($color-grey-light-1, 1),
+      rgba($color-grey-light-1, 0.9)
+    ),
+    url("../../img/video.mp4");
+  background-size: cover;
 }

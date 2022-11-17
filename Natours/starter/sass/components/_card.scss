@@ -1,0 +1,194 @@
+.card {
+  position: relative;
+
+  perspective: 110rem;
+  -moz-perspective: 110rem;
+  // duplicate the height to save the perspective effect,
+  // becouse after absolute positioning CARD lost the hieght;
+  height: 50rem;
+
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50rem;
+
+    width: 100%;
+    font-size: 2rem;
+    transition: all 400ms ease;
+    border-radius: $border-radius-sm;
+    overflow: hidden;
+    box-shadow: 0 1.5px 4rem rgba($color-black, 0.2);
+
+    backface-visibility: hidden;
+
+    &--front {
+      background-color: $color-white;
+      color: $color-font-main;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-yellow-light,
+          $color-yellow-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-green-light,
+          $color-green-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-blue-light,
+          $color-blue-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  //  FRONT SIDE OF THE CARD
+  &__picture {
+    background-size: cover;
+    height: 20rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: $border-radius-sm;
+    border-top-right-radius: $border-radius-sm;
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-yellow-light,
+          $color-yellow-dark
+        ),
+        url(../../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-green-light,
+          $color-green-dark
+        ),
+        url(../../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-blue-light,
+          $color-blue-dark
+        ),
+        url(../../img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    position: absolute;
+    top: 11rem;
+    right: 2rem;
+
+    text-align: right;
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-white;
+    width: 60%;
+  }
+
+  &__heading-span {
+    padding: 0.8rem 1.2rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-yellow-light, 0.77),
+        rgba($color-yellow-dark, 0.77)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-green-light, 0.77),
+        rgba($color-green-dark, 0.77)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-blue-light, 0.77),
+        rgba($color-blue-dark, 0.77)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // BACK SIDE OF THE CARD
+
+  &__cta {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  &__price-value {
+    font-size: 6.4rem;
+    font-weight: 300;
+  }
+}
