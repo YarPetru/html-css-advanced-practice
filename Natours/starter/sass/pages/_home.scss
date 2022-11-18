@@ -32,12 +32,13 @@
 }
 
 .section-stories {
+  position: relative;
+
   padding: 20rem 0;
   background-image: linear-gradient(
-      to bottom,
-      rgba($color-grey-light-1, 1),
-      rgba($color-grey-light-1, 0.9)
-    ),
-    url("../../img/video.mp4");
+    to bottom,
+    rgba($color-grey-light-1, 0.77),
+    rgba($color-grey-light-1, 0.88)
+  );
   background-size: cover;
 }
