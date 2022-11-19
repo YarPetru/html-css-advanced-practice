@@ -1,0 +1,108 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.6rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1rem 2rem;
+    border-radius: $border-radius-md;
+    background-color: rgba($color-white, 0.55);
+    border: none;
+    border-bottom: 3px solid transparent;
+
+    width: 100%;
+    display: block;
+
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid $color-green-medium;
+      box-shadow: $box-shadow-small;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-yellow-dark;
+    }
+
+    &::placeholder {
+      color: $color-grey-dark-1;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.8rem;
+
+    transition: all 300ms ease;
+  }
+
+  //label must stay after the input in HTML to seletor with '+'works
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden; //element go away from page, but visibility is not animated. so Opacity
+    transform: translateY(-4rem);
+  }
+
+  // CUSTOM RADIO BUTTONS
+
+  &__radio-group {
+    width: 40%;
+    display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__radio-label {
+    position: relative;
+    font-size: $font-size-default;
+    font-weight: 500;
+    cursor: pointer;
+    padding-left: 4rem;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  // BUTTONS IS HERE
+  &__radio-btn {
+    position: absolute;
+    // left: -2.37rem;
+    left: 0rem;
+    top: -0.6rem;
+
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-green-medium;
+    border-radius: 50%;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      content: "";
+      display: inline-block;
+      height: 1.2rem;
+      width: 1.2rem;
+      border-radius: 50%;
+      background-color: $color-green-medium;
+      opacity: 0;
+      transition: all 200ms ease;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-btn::after {
+    opacity: 1;
+  }
+}

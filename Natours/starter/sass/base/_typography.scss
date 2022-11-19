@@ -10,7 +10,6 @@ body {
   color: $color-white;
   text-transform: uppercase;
   /* backface-visibility: hidden ; */
-
   margin-bottom: 6rem;
 
   &--main {
@@ -23,6 +22,11 @@ body {
     animation-duration: 600ms;
     animation-timing-function: ease-in; */
     animation: moveInLeft 800ms ease-in-out;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 3rem;
+    }
   }
 
   &--sub {
@@ -34,8 +38,12 @@ body {
     animation-name: moveInRight;
     animation-duration: 800ms;
     animation-timing-function: ease-in-out;
-
     /* animation-iteration-count: 5; */
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+      // font-family: ;
+    }
   }
 }
 
@@ -53,6 +61,14 @@ body {
   color: transparent;
   letter-spacing: 4px;
   transition: all 200ms ease;
+
+  @include respond(tab-port) {
+    font-size: 2.6rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
 
   &:hover {
     transform: skewY(4deg) skewX(10deg) scale(1.1);

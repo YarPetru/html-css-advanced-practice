@@ -1,0 +1,124 @@
+.pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color-grey-dark-2, 0.88);
+
+  opacity: 0; // trasparent content
+  visibility: hidden; //hide content
+
+  &__content {
+    position: absolute;
+    @include position-centered;
+
+    background-color: $color-white;
+    width: 60%;
+    // height: 60%;
+    box-shadow: $box-shadow-contrast;
+    border-radius: $border-radius-md;
+
+    display: table;
+    overflow: hidden;
+
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 200ms 200ms;
+
+    @include respond(tab-land) {
+      height: 80vh;
+      width: 85%;
+    }
+  }
+
+  &__left {
+    width: 33.3333333333%;
+    display: table-cell;
+    vertical-align: middle;
+
+    // float: left;
+
+    @include respond(tab-land) {
+      width: 100%;
+      display: flex;
+    }
+  }
+  &__right {
+    height: 66.666666666667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+    // float: left;
+
+    @include respond(tab-land) {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 50%;
+      // height: 10rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.4rem;
+
+    -moz-column-count: 2;
+    -moz-column-gap: 2rem;
+    -moz-column-rule: 0.5px solid $color-grey-light-2;
+
+    column-count: 2;
+    column-gap: 2rem;
+    column-rule: 0.5px solid $color-grey-light-2;
+
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+    @include respond(tab-port) {
+      column-count: 1;
+    }
+  }
+
+  // animated appearence
+  &:target &__content {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  // CLOSING MODAL
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close-btn {
+    &:link,
+    &:visited {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+
+      display: inline-block;
+      font-size: 3rem;
+      line-height: 1;
+      text-decoration: none;
+      color: $color-grey-dark-2;
+      transition: all 200ms ease;
+    }
+
+    &:hover {
+      color: $color-green-light;
+    }
+  }
+}

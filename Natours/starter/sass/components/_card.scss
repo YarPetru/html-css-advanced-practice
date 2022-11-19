@@ -18,7 +18,7 @@
     transition: all 400ms ease;
     border-radius: $border-radius-sm;
     overflow: hidden;
-    box-shadow: 0 1.5px 4rem rgba($color-black, 0.2);
+    box-shadow: $box-shadow-main;
 
     backface-visibility: hidden;
 
@@ -190,5 +190,54 @@
   &__price-value {
     font-size: 6.4rem;
     font-weight: 300;
+  }
+
+  // ------------------ RESPONSIVE FOR TABLETS AND NARROW
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: $border-radius-md;
+    background-color: $color-white;
+    box-shadow: $box-shadow-main;
+
+    &__side {
+      position: relative;
+      height: auto;
+      font-size: 2rem;
+
+      &--front {
+        box-shadow: none;
+      }
+
+      &--back {
+        transform: rotateY(0);
+        -webkit-clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%);
+        // margin-top: -6rem;
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    // BACK SIDE OF THE CARD
+
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 6.4rem;
+    }
   }
 }
