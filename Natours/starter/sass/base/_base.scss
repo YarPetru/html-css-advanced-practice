@@ -54,3 +54,8 @@ body {
     // font-size: 75%;
   }
 }
+
+::selection {
+  background-color: $color-green-dark;
+  color: $color-white;
+}
